@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class OrdersServiceImpl implements OrderService {
     @Autowired
     OrdersRepository ordersRepository;
+
     @Override
     public List<Orders> getAllOrders() {
         return ordersRepository.findAll();
@@ -29,7 +31,7 @@ public class OrdersServiceImpl implements OrderService {
     @Override
     public void updateOrder(Orders orders) {
         if (ordersRepository.existsById(orders.getId())) {
-           ordersRepository.save(orders);
+            ordersRepository.save(orders);
         }
     }
 

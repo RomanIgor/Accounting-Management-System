@@ -1,7 +1,6 @@
 package com.igor.boot.fullstackApp.entity;
 
 
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -21,30 +20,29 @@ public class Invoices {
     private int id;
     @Column(name = "firma")
     private String firma;
-    @Column (name = "rechnungs_nummer")
+    @Column(name = "rechnungs_nummer")
     private String rechnungsNummer;
-    @Column (name = "rechnungs_datum")
+    @Column(name = "rechnungs_datum")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date rechnungsDatum;
-    @Column (name = "frist")
+    @Column(name = "frist")
     private String frist;
-    @Column (name = "bestelldatum")
+    @Column(name = "bestelldatum")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bestellDatum;
-    @Column (name = "gesamt_preis_laut_bestellung")
+    @Column(name = "gesamt_preis_laut_bestellung")
     private BigDecimal gesamtPreisLautBestellung;
-    @Column (name = "rechnung_art")
+    @Column(name = "rechnung_art")
     private String rechnungsart;
-
-    @Column (name = "alpha_nr")
+    @Column(name = "alpha_nr")
     private String alphaNr;
-    @Column (name = "konto")
+    @Column(name = "konto")
     private String konto;
-    @Column (name = "re_betrag")
+    @Column(name = "re_betrag")
     private BigDecimal rechnungBetrag;
-    @Column (name = "bezahlt")
+    @Column(name = "bezahlt")
     private BigDecimal bezahlt;
-    @Column (name = "kommentare")
+    @Column(name = "kommentare")
     private String kommentare;
 
     public Invoices() {

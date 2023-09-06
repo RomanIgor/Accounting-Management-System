@@ -1,7 +1,6 @@
 package com.igor.boot.fullstackApp.entity;
 
 
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -20,43 +19,32 @@ public class Orders {
 
     @Column(name = "projekt_nummer")
     private String projektNummer;
-    @Column (name = "bestelldatum")
+    @Column(name = "bestelldatum")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bestellDatum;
     @Column(name = "firma")
     private String firma;
-
     @Column(name = "land")
     private String land;
-
     @Column(name = "bestell_nummer")
     private String bestellNummer;
-
     @Column(name = "angebot_nummer")
     private String angebotNummer;
-
     @Column(name = "leistungsbeschreibung")
     private String leistungsBeschreibung;
-
     @Column(name = "pm")
     private String projektManager;
-
     @Column(name = "preis_netto")
     private BigDecimal preisNetto;
-
     @Column(name = "zahlungsbedinungen")
     private String zahlungsBedinungen;
-
     @Column(name = "erstellte_brutto")
     private BigDecimal erstellteBrutto;
-
     @Column(name = "rechnung_nummer")
     private String rechnungNummer;
-
     @Column(name = "rechnung_datum")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date rechnungDatum;
-
     @Column(name = "kommentare")
     private String kommentare;
 
@@ -64,14 +52,14 @@ public class Orders {
     }
 
     public Orders(
-            int id, String projektNummer,  Date bestellDatum, String firma,
+            int id, String projektNummer, Date bestellDatum, String firma,
             String land, String bestellNummer,
             String angebotNummer, String leistungsBeschreibung,
             String projektManager, BigDecimal preisNetto,
             String zahlungsBedinungen, BigDecimal erstellteBrutto,
             String rechnungNummer, Date rechnungDatum, String kommentare) {
         this.id = id;
-        this.projektNummer=projektNummer;
+        this.projektNummer = projektNummer;
         this.bestellDatum = bestellDatum;
         this.firma = firma;
         this.land = land;

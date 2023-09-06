@@ -1,7 +1,6 @@
 package com.igor.boot.fullstackApp.entity;
 
 
-
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -16,18 +15,12 @@ public class Person {
     @Column(name = "id")
     private Long id;
 
-//    @NotEmpty(message = "Name cannot be empty")
-//    @Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters")
     @Column(name = "username")
     private String username;
-
-//    @Min(value = 1900, message = "Age should be greater than 1900")
     @Column(name = "year_of_birth")
     private int yearOfBirth;
-
     @Column(name = "password")
     private String password;
-
     @Column(name = "role")
     private String role;
 

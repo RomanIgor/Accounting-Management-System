@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+
 @Controller
 public class DebitorenController {
     @Autowired
@@ -24,9 +25,7 @@ public class DebitorenController {
     public String showAllDebitoren(Model model) {
 
         List<Debitoren> allDebitoren = debitorenService.getAllDebitoren();
-
         model.addAttribute("allDebt", allDebitoren);
-
 
         return "/debitoren/all-debitoren";
     }
@@ -35,7 +34,7 @@ public class DebitorenController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addNewDebitor(Model model) {
 
-       Debitoren debitor = new Debitoren();
+        Debitoren debitor = new Debitoren();
         model.addAttribute("debitor", debitor);
 
         return "/debitoren/create-debitor";
@@ -50,7 +49,6 @@ public class DebitorenController {
             throw new AccessDeniedException("Access denied: Only administrators can save invoices.");
         }
 
-
         debitorenService.saveDebitor(debitor);
         return "redirect:/debitoren";
     }
@@ -62,9 +60,7 @@ public class DebitorenController {
         return modelAndView;
     }
 
-
     @RequestMapping("/updateDebitor")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String updateDebitor(@RequestParam("debtId") int id, Model model) {
         Debitoren debitoren = debitorenService.getDebitor(id);
         model.addAttribute("debitor", debitoren);
@@ -77,12 +73,10 @@ public class DebitorenController {
     @PostMapping("/debitor/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String updateDebitor(@PathVariable int id,
-                              @ModelAttribute("debitor") Debitoren debitoren,
-                              Model model) {
+                                @ModelAttribute("debitor") Debitoren debitoren,
+                                Model model) {
 
-
-        Debitoren  existingDebitor = debitorenService.getDebitor(id);
-//        existingInvoice.setId(id);
+        Debitoren existingDebitor = debitorenService.getDebitor(id);
         existingDebitor.setFirma(debitoren.getFirma());
         existingDebitor.setRechnungNummer(debitoren.getRechnungNummer());
         existingDebitor.setRechnungDatum(debitoren.getRechnungDatum());
@@ -91,14 +85,10 @@ public class DebitorenController {
         existingDebitor.setBetrag(debitoren.getBetrag());
         existingDebitor.setNaechsteErrinerung(debitoren.getNaechsteErrinerung());
         existingDebitor.setKommentare(debitoren.getKommentare());
-
         debitorenService.updateDebitor(existingDebitor);
+
         return "redirect:/debitoren";
     }
-
-
-
-
 
 
     @GetMapping("/debitor/{id}")
@@ -107,6 +97,5 @@ public class DebitorenController {
         debitorenService.deleteDebitor(id);
         return "redirect:/debitoren";
     }
-
 
 }

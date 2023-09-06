@@ -20,15 +20,11 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-
-
     @RequestMapping("/orders")
     public String showAllOrders(Model model) {
 
         List<Orders> allOrders = orderService.getAllOrders();
-
         model.addAttribute("allOrd", allOrders);
-
 
         return "/bestellungen/all-orders";
     }
@@ -37,7 +33,7 @@ public class OrderController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String addNewOrder(Model model) {
 
-       Orders order = new Orders();
+        Orders order = new Orders();
         model.addAttribute("order", order);
 
         return "/bestellungen/create-order";
@@ -52,37 +48,33 @@ public class OrderController {
             throw new AccessDeniedException("Access denied: Only administrators can save invoices.");
         }
 
-
         orderService.saveOrder(orders);
         return "redirect:/orders";
     }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ModelAndView handleAccessDeniedException(AccessDeniedException ex) {
-        ModelAndView modelAndView = new ModelAndView("access-denied"); // Create an appropriate view
+        ModelAndView modelAndView = new ModelAndView("access-denied");
         modelAndView.addObject("message", ex.getMessage());
         return modelAndView;
     }
 
     @RequestMapping("/updateOrder")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+
     public String updateOrder(@RequestParam("ordId") int id, Model model) {
         Orders orders = orderService.getOrder(id);
         model.addAttribute("order", orders);
         return "/bestellungen/edit-order";
-
-
     }
 
     @PostMapping("/order/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String updateOrder(@PathVariable int id,
-                                @ModelAttribute("order") Orders orders,
-                                Model model) {
+                              @ModelAttribute("order") Orders orders,
+                              Model model) {
 
 
-        Orders  existingOrder = orderService.getOrder(id);
-//        existingInvoice.setId(id);
+        Orders existingOrder = orderService.getOrder(id);
         existingOrder.setProjektNummer(orders.getProjektNummer());
         existingOrder.setBestellDatum(orders.getBestellDatum());
         existingOrder.setFirma(orders.getFirma());
@@ -98,14 +90,10 @@ public class OrderController {
         existingOrder.setRechnungDatum(orders.getRechnungDatum());
         existingOrder.setKommentare(orders.getKommentare());
 
-
-
         orderService.updateOrder(existingOrder);
 
         return "redirect:/orders";
     }
-
-
 
     @GetMapping("/order/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -113,8 +101,4 @@ public class OrderController {
         orderService.deleteOrder(id);
         return "redirect:/orders";
     }
-
-
-
-
 }

@@ -25,13 +25,12 @@ public class InvoiceController {
     private InvoiceService invoiceService;
     @Autowired
     private AdminService adminService;
+
     @RequestMapping("/")
     public String showAllInvoices(Model model) {
 
         List<Invoices> allInvoices = invoiceService.getAllInvoices();
-
         model.addAttribute("allInv", allInvoices);
-
 
         return "/rechnungen/all-invoices";
     }
@@ -55,7 +54,6 @@ public class InvoiceController {
             throw new AccessDeniedException("Access denied: Only administrators can save invoices.");
         }
 
-
         invoiceService.saveInvoice(invoices);
         return "redirect:/";
     }
@@ -64,17 +62,17 @@ public class InvoiceController {
     public ModelAndView handleAccessDeniedException(AccessDeniedException ex) {
         ModelAndView modelAndView = new ModelAndView("access-denied"); // Create an appropriate view
         modelAndView.addObject("message", ex.getMessage());
+
         return modelAndView;
     }
 
     @RequestMapping("/updateInfo")
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+
     public String updateInvoice(@RequestParam("empId") int id, Model model) {
-       Invoices invoices = invoiceService.getInvoice(id);
+        Invoices invoices = invoiceService.getInvoice(id);
         model.addAttribute("invoice", invoices);
 
         return "/rechnungen/edit-invoice";
-
 
     }
 
@@ -83,7 +81,6 @@ public class InvoiceController {
     public String updateInvoice(@PathVariable int id,
                                 @ModelAttribute("invoice") Invoices invoices,
                                 Model model) {
-
 
         Invoices existingInvoice = invoiceService.getInvoice(id);
         existingInvoice.setFirma(invoices.getFirma());
@@ -99,24 +96,21 @@ public class InvoiceController {
         existingInvoice.setBezahlt(invoices.getBezahlt());
         existingInvoice.setKommentare(invoices.getKommentare());
 
-
         invoiceService.updateInvoice(existingInvoice);
         return "redirect:/";
     }
-
-
 
     @GetMapping("/invoice/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteInvoice(@PathVariable int id) {
         invoiceService.deleteInvoice(id);
+
         return "redirect:/";
     }
 
-
     @GetMapping("/index")
-    public String getNew(){
+    public String getNew() {
+
         return "index";
     }
-
 }

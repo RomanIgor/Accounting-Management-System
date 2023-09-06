@@ -16,9 +16,6 @@ public class PersonDetails implements UserDetails {
         this.person = person;
     }
 
-
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 

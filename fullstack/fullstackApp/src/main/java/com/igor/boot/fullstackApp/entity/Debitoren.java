@@ -1,7 +1,6 @@
 package com.igor.boot.fullstackApp.entity;
 
 
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -20,23 +19,18 @@ public class Debitoren {
     private String firma;
     @Column(name = "rechnung_nummer")
     private String rechnungNummer;
-
-    @Column (name = "rechnung_datum")
+    @Column(name = "rechnung_datum")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date rechnungDatum;
     @Column(name = "frist")
     private String frist;
-
     @Column(name = "art_rechnung")
     private String artRechnung;
-
     @Column(name = "betrag")
     private BigDecimal betrag;
-
     @Column(name = "nächste_erinnerung")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date naechsteErrinerung;
-
     @Column(name = "kommentare")
     private String kommentare;
 

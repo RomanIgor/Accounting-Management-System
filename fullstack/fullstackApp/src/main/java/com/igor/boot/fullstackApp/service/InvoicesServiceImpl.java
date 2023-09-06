@@ -10,10 +10,9 @@ import java.util.List;
 @Service
 public class InvoicesServiceImpl implements InvoiceService {
 
-
-
     @Autowired
     InvoicesRepository invoicesRepository;
+
     @Override
     public List<Invoices> getAllInvoices() {
         return invoicesRepository.findAll();
@@ -24,21 +23,15 @@ public class InvoicesServiceImpl implements InvoiceService {
         return invoicesRepository.save(invoices);
     }
 
-
-
     @Override
     public Invoices getInvoice(int id) {
         return invoicesRepository.findById(id).get();
     }
 
-
     @Override
     public void deleteInvoice(int id) {
         invoicesRepository.deleteById(id);
-
     }
-
-
 
     @Override
     public void updateInvoice(Invoices invoices) {
@@ -46,11 +39,4 @@ public class InvoicesServiceImpl implements InvoiceService {
             invoicesRepository.save(invoices);
         }
     }
-
-//    @Override
-//    public void updateAnotherVersionInvoice(Invoices existingInvoice) {
-//        invoicesRepository.save(existingInvoice);
-//    }
-
-
 }

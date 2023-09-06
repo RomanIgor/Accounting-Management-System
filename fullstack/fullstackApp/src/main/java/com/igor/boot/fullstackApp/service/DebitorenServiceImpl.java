@@ -31,11 +31,9 @@ public class DebitorenServiceImpl implements DebitorenService {
         if(debitorenRepository.existsById(debitor.getId()))
             debitorenRepository.save(debitor);
     }
-
     @Override
     public void deleteDebitor(int id) {
         debitorenRepository.deleteById(id);
     }
-
 
 }
