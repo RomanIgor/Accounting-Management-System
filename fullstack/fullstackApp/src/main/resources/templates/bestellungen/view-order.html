@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoices</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Accounting Management System</a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/orders}">Bestellungen</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <br><br>
+            <h1 class="text-center">Bestellung anzeigen
+                <a th:href="@{/orders}" class="btn btn-warning float-end">Back</a>
+            </h1>
+
+            <div class="card-body">
+                <form class="needs-validation" th:action="@{/order/{id} (id=${order.id})}" th:object="${order}" method="GET" novalidate>
+                    <div class="form-group">
+                        <label>Projekt Nr.</label>
+                        <input
+                                type="text"
+                                name="projektNummer"
+                                th:field="*{projektNummer}"
+                                class="form-control"
+                                placeholder="Enter the project number"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the project number.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bestell Datum</label>
+                        <input
+                                type="date"
+                                name="bestellDatum"
+                                th:field="*{bestellDatum}"
+                                class="form-control"
+                                placeholder="Enter the date of order"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the date of order.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Firma</label>
+                        <input
+                                type="text"
+                                name="firma"
+                                th:field="*{firma}"
+                                class="form-control"
+                                placeholder="Enter the name of company"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter teh name of company.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Land</label>
+                        <input
+                                type="text"
+                                name="land"
+                                th:field="*{land}"
+                                class="form-control"
+                                placeholder="Enter the country"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the country.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bestell Nr.</label>
+                        <input
+                                type="text"
+                                name="bestellNummer"
+                                th:field="*{bestellNummer}"
+                                class="form-control"
+                                placeholder="Enter the order number"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the order number.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Angebot Nr.</label>
+                        <input
+                                type="text"
+                                name="angebotNummer"
+                                th:field="*{angebotNummer}"
+                                class="form-control"
+                                placeholder="Enter offer number"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the offer number.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Leistung</label>
+                        <input
+                                type="text"
+                                name="leistungsBeschreibung"
+                                th:field="*{leistungsBeschreibung}"
+                                class="form-control"
+                                placeholder="Enter the service type"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the service type.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>PM</label>
+                        <input
+                                type="text"
+                                name="projektManager"
+                                th:field="*{projektManager}"
+                                class="form-control"
+                                placeholder="Enter the name of PM"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the name of PM.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preis Netto</label>
+                        <input
+                                type="number"
+                                name="preisNetto"
+                                th:field="*{preisNetto}"
+                                class="form-control"
+                                placeholder="Enter the amount"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the amount.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Raten</label>
+                        <input
+                                type="text"
+                                name="zahlungsBedinungen"
+                                th:field="*{zahlungsBedinungen}"
+                                class="form-control"
+                                placeholder="Enter the rate "
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the rate.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Erstellt Brutto</label>
+                        <input
+                                type="number"
+                                name="erstellteBrutto"
+                                th:field="*{erstellteBrutto}"
+                                class="form-control"
+                                placeholder="Enter the amount"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter a valid amount.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rechnung Nr.</label>
+                        <input
+                                type="text"
+                                name="rechnungNummer"
+                                th:field="*{rechnungNummer}"
+                                class="form-control"
+                                placeholder="Enter the number of Invoice"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the number of Invoice.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rechnung Datum</label>
+                        <input
+                                type="date"
+                                name="rechnungDatum"
+                                th:field="*{rechnungDatum}"
+                                class="form-control"
+                                placeholder="Enter the date of Invoice"
+                                required
+                        />
+                        <div class="invalid-feedback">
+                            Please enter the date of Invoice.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kommentare</label>
+                        <input
+                                type="text"
+                                name="kommentare"
+                                th:field="*{kommentare}"
+                                class="form-control"
+                                placeholder="Here you can write some comments"
+
+                        />
+
+                    </div>
+
+<!--                    <button type="submit" class="btn btn-primary">Save</button>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    // Custom validation for salary field
+                    var salaryInput = form.querySelector('[name="salary"]');
+                    if (salaryInput && (parseFloat(salaryInput.value) <= 0 || isNaN(parseFloat(salaryInput.value)))) {
+                        salaryInput.classList.add('is-invalid');
+                        salaryInput.classList.remove('is-valid');
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else if (salaryInput) {
+                        salaryInput.classList.remove('is-invalid');
+                        salaryInput.classList.add('is-valid');
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+</body>
+</html>
+
+
+
