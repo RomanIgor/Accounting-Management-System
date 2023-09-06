@@ -4,7 +4,6 @@ import com.igor.boot.fullstackApp.entity.Invoices;
 import com.igor.boot.fullstackApp.repository.InvoicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

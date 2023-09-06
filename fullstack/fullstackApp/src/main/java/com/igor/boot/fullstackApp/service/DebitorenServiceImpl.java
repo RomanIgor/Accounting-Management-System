@@ -4,7 +4,6 @@ import com.igor.boot.fullstackApp.entity.Debitoren;
 import com.igor.boot.fullstackApp.repository.DebitorenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

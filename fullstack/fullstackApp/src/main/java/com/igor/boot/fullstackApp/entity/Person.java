@@ -1,8 +1,6 @@
 package com.igor.boot.fullstackApp.entity;
 
-
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
 
 

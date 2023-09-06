@@ -3,7 +3,6 @@ package com.igor.boot.fullstackApp.controller;
 import com.igor.boot.fullstackApp.entity.Person;
 import com.igor.boot.fullstackApp.service.RegistrationService;
 import com.igor.boot.fullstackApp.util.PersonValidator;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

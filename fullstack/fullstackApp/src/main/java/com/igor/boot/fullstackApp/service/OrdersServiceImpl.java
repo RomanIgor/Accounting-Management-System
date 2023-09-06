@@ -1,11 +1,9 @@
 package com.igor.boot.fullstackApp.service;
 
-import com.igor.boot.fullstackApp.entity.Invoices;
 import com.igor.boot.fullstackApp.entity.Orders;
 import com.igor.boot.fullstackApp.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

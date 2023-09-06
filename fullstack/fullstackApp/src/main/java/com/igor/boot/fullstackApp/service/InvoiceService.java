@@ -1,8 +1,6 @@
 package com.igor.boot.fullstackApp.service;
 
-
 import com.igor.boot.fullstackApp.entity.Invoices;
-
 import java.util.List;
 
 public interface InvoiceService {

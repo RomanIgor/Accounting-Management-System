@@ -1,7 +1,6 @@
 package com.igor.boot.fullstackApp.service;
 
 import com.igor.boot.fullstackApp.entity.Debitoren;
-
 import java.util.List;
 
 public interface DebitorenService {
