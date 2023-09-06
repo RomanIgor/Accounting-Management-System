@@ -175,19 +175,6 @@
                         event.preventDefault();
                         event.stopPropagation();
                     }
-
-                    // Custom validation for salary field
-                    var salaryInput = form.querySelector('[name="salary"]');
-                    if (salaryInput && (parseFloat(salaryInput.value) <= 0 || isNaN(parseFloat(salaryInput.value)))) {
-                        salaryInput.classList.add('is-invalid');
-                        salaryInput.classList.remove('is-valid');
-                        event.preventDefault();
-                        event.stopPropagation();
-                    } else if (salaryInput) {
-                        salaryInput.classList.remove('is-invalid');
-                        salaryInput.classList.add('is-valid');
-                    }
-
                     form.classList.add('was-validated');
                 }, false);
             });

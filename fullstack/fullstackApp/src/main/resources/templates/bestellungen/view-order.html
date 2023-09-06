@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,7 +38,8 @@
             </h1>
 
             <div class="card-body">
-                <form class="needs-validation" th:action="@{/order/{id} (id=${order.id})}" th:object="${order}" method="GET" novalidate>
+                <form class="needs-validation" th:action="@{/order/{id} (id=${order.id})}" th:object="${order}"
+                      method="GET" novalidate>
                     <div class="form-group">
                         <label>Projekt Nr.</label>
                         <input
@@ -248,7 +248,7 @@
 
                     </div>
 
-<!--                    <button type="submit" class="btn btn-primary">Save</button>-->
+                    <!--                    <button type="submit" class="btn btn-primary">Save</button>-->
                 </form>
             </div>
         </div>
@@ -266,18 +266,6 @@
                     if (form.checkValidity() === false) {
                         event.preventDefault();
                         event.stopPropagation();
-                    }
-
-                    // Custom validation for salary field
-                    var salaryInput = form.querySelector('[name="salary"]');
-                    if (salaryInput && (parseFloat(salaryInput.value) <= 0 || isNaN(parseFloat(salaryInput.value)))) {
-                        salaryInput.classList.add('is-invalid');
-                        salaryInput.classList.remove('is-valid');
-                        event.preventDefault();
-                        event.stopPropagation();
-                    } else if (salaryInput) {
-                        salaryInput.classList.remove('is-invalid');
-                        salaryInput.classList.add('is-valid');
                     }
 
                     form.classList.add('was-validated');
