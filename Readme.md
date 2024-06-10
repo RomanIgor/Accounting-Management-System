@@ -10,27 +10,27 @@ and track companies that have outstanding payments.
 
 * <b> Orders Management</b>: Add and manage new projects with detailed information and payment 
   conditions.
-![img_3.png](img_3.png)
+![img_3](./images/img_3.png)
   
 * <b> Invoice Management </b>: Record and track invoice details for each project.
-![img_4.png](img_4.png)  
+![img_4.png](./images/img_4.png)  
 * <b> Debitors Management </b>: Maintain a list of companies that have not yet paid their invoices.
-![img_5.png](img_5.png)
+![img_5.png](./images/img_5.png)
 ## Sections
 ### Orders
 
-![img.png](img.png)
+![img.png](./images/img.png)
 This section allows the company to enter details of new projects. When a new project is initiated, all relevant information, including payment conditions, can be recorded.
 
 
 ### Invoices
 
-![img_1.png](img_1.png)
+![img_1.png](./images/img_1.png)
 In this section, users can write and manage invoice information related to various projects. This helps keep track of all financial transactions and ensures that records are maintained accurately.
 
 ### Debitors
 
-![img_2.png](img_2.png)
+![img_2.png](./images/img_2.png)
 The Debitors section lists companies that have outstanding invoices. This helps the company track unpaid invoices and manage follow-ups for payment collection.
 
 
