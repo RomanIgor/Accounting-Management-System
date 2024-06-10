@@ -18,20 +18,19 @@ and track companies that have outstanding payments.
 ![img_5.png](./images/img_5.png)
 ## Sections
 ### Orders
-
-![img.png](./images/img.png)
 This section allows the company to enter details of new projects. When a new project is initiated, all relevant information, including payment conditions, can be recorded.
+![img.png](./images/img.png)
+
 
 
 ### Invoices
-
-![img_1.png](./images/img_1.png)
 In this section, users can write and manage invoice information related to various projects. This helps keep track of all financial transactions and ensures that records are maintained accurately.
+![img_1.png](./images/img_1.png)
 
 ### Debitors
-
-![img_2.png](./images/img_2.png)
 The Debitors section lists companies that have outstanding invoices. This helps the company track unpaid invoices and manage follow-ups for payment collection.
+![img_2.png](./images/img_2.png)
+
 
 
 ## Getting Started
