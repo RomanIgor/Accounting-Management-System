@@ -26,7 +26,8 @@ public class AuthController {
     }
 
     @RequestMapping("/login")
-    public String login() {
+    public String login()
+    {
         return "auth/login";
     }
 

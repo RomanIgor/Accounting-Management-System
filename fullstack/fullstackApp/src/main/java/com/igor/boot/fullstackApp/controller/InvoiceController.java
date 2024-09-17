@@ -108,4 +108,9 @@ public class InvoiceController {
 
         return "index";
     }
+
+    @GetMapping("/uploadExcel")
+    public String showExcelUploadPage() {
+        return "redirect:/api/excel/upload";
+    }
 }
